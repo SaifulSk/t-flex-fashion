@@ -277,11 +277,11 @@ export default function StorePage() {
                     >
                       <div>
                         <div style={{ fontSize: "1.25rem", fontWeight: 900 }}>
-                          ${prod.price.toFixed(2)}
+                          ₹{prod.price.toFixed(0)}
                         </div>
                         {prod.originalPrice && (
                           <div style={{ fontSize: "0.8rem", color: "var(--text-muted)", textDecoration: "line-through" }}>
-                            ${prod.originalPrice.toFixed(2)}
+                            ₹{prod.originalPrice.toFixed(0)}
                           </div>
                         )}
                       </div>

@@ -789,7 +789,7 @@ export default function CanvasStudio({ initialProduct = null }) {
 
   const handleAddToCart = async () => {
     const previewUrl = await generateCompositePreview();
-    const customExtra = (frontElements.length > 0 ? 5 : 0) + (backElements.length > 0 ? 5 : 0);
+    const customExtra = (frontElements.length > 0 ? 149 : 0) + (backElements.length > 0 ? 149 : 0);
     const unitPrice = selectedProduct.price + customExtra;
 
     addToCart({
@@ -938,12 +938,12 @@ export default function CanvasStudio({ initialProduct = null }) {
             >
               <ShoppingBag size={18} />
               <span>
-                Add to Cart • $
+                Add to Cart • ₹
                 {(
                   selectedProduct.price +
-                  (frontElements.length ? 5 : 0) +
-                  (backElements.length ? 5 : 0)
-                ).toFixed(2)}
+                  (frontElements.length ? 149 : 0) +
+                  (backElements.length ? 149 : 0)
+                ).toFixed(0)}
               </span>
             </button>
           </div>
@@ -1476,7 +1476,7 @@ export default function CanvasStudio({ initialProduct = null }) {
                           <div style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>{prod.specs.weight}</div>
                         </div>
                         <span style={{ fontSize: "0.9rem", fontWeight: 800, color: "var(--accent-cyan)" }}>
-                          ${prod.price.toFixed(2)}
+                          ₹{prod.price.toFixed(0)}
                         </span>
                       </div>
                     ))}

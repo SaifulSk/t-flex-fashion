@@ -186,11 +186,11 @@ export default function ProductDetailClient({ product }) {
             {/* Price */}
             <div style={{ display: "flex", alignItems: "baseline", gap: "12px" }}>
               <span style={{ fontSize: "2rem", fontWeight: 900, color: "var(--text-main)" }}>
-                ${product.price.toFixed(2)}
+                ₹{product.price.toFixed(0)}
               </span>
               {product.originalPrice && (
                 <span style={{ fontSize: "1.1rem", color: "var(--text-muted)", textDecoration: "line-through" }}>
-                  ${product.originalPrice.toFixed(2)}
+                  ₹{product.originalPrice.toFixed(0)}
                 </span>
               )}
               <span className="badge badge-emerald" style={{ background: "rgba(16, 185, 129, 0.15)", color: "#10b981" }}>
@@ -315,7 +315,7 @@ export default function ProductDetailClient({ product }) {
                 }}
               >
                 <ShoppingBag size={18} />
-                <span>Add Plain Blank to Bag (${product.price.toFixed(2)})</span>
+                <span>Add Plain Blank to Bag (₹{product.price.toFixed(0)})</span>
               </button>
             </div>
 
@@ -335,7 +335,7 @@ export default function ProductDetailClient({ product }) {
             >
               <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                 <Truck size={16} color="var(--accent-cyan)" />
-                <span>Free shipping over $60</span>
+                <span>Free shipping over ₹999</span>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                 <ShieldCheck size={16} color="#10b981" />

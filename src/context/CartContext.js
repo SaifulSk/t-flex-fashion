@@ -125,7 +125,7 @@ export const CartProvider = ({ children }) => {
   }, 0);
 
   const discountAmount = Math.round((subtotal * discountPercent) / 100);
-  const shippingFee = subtotal > 1500 || subtotal === 0 ? 0 : 99; // Free shipping over 1500 INR / $25
+  const shippingFee = subtotal >= 999 || subtotal === 0 ? 0 : 79; // Free shipping over ₹999 in India
   const finalTotal = Math.max(0, subtotal - discountAmount + shippingFee);
 
   return (

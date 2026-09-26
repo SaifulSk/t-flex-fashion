@@ -267,7 +267,7 @@ export default function ProfilePage() {
                           ● {order.orderStatus || "Printing & Preparation"}
                         </span>
                         <span style={{ fontWeight: 800, fontSize: "1.1rem" }}>
-                          ${order.pricing?.total ? order.pricing.total.toFixed(2) : "39.99"}
+                          ₹{order.pricing?.total ? order.pricing.total.toFixed(0) : "999"}
                         </span>
                       </div>
                     </div>
@@ -283,7 +283,7 @@ export default function ProfilePage() {
                               width: "56px",
                               height: "60px",
                               objectFit: "contain",
-                              background: "#0d0e14",
+                              background: "var(--bg-secondary)",
                               borderRadius: "var(--radius-md)",
                               border: "1px solid var(--border-subtle)"
                             }}
@@ -295,7 +295,7 @@ export default function ProfilePage() {
                             </div>
                           </div>
                           <span style={{ fontWeight: 700, fontSize: "0.95rem" }}>
-                            ${((item.price || 0) * (item.quantity || 1)).toFixed(2)}
+                            ₹{((item.price || 0) * (item.quantity || 1)).toFixed(0)}
                           </span>
                         </div>
                       ))}

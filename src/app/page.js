@@ -535,7 +535,7 @@ export default function HomePage() {
                     >
                       <div>
                         <div style={{ fontSize: "1.25rem", fontWeight: 900, color: "var(--text-main)" }}>
-                          ${prod.price.toFixed(2)}
+                          ₹{prod.price.toFixed(0)}
                         </div>
                         {prod.originalPrice && (
                           <div
@@ -545,7 +545,7 @@ export default function HomePage() {
                               textDecoration: "line-through"
                             }}
                           >
-                            ${prod.originalPrice.toFixed(2)}
+                            ₹{prod.originalPrice.toFixed(0)}
                           </div>
                         )}
                       </div>

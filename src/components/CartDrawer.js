@@ -45,7 +45,7 @@ export default function CartDrawer() {
     setCouponMessage(res);
   };
 
-  const freeShippingThreshold = 60;
+  const freeShippingThreshold = 999;
   const neededForFreeShipping = Math.max(0, freeShippingThreshold - subtotal);
   const progressPercent = Math.min(100, (subtotal / freeShippingThreshold) * 100);
 
@@ -125,7 +125,7 @@ export default function CartDrawer() {
           <div style={{ fontSize: "0.8rem", color: "var(--text-secondary)", marginBottom: "6px" }}>
             {neededForFreeShipping > 0 ? (
               <>
-                Add <strong style={{ color: "var(--accent-cyan)" }}>${neededForFreeShipping.toFixed(2)}</strong> more for <strong>FREE Express Shipping</strong>
+                Add <strong style={{ color: "var(--accent-cyan)" }}>₹{neededForFreeShipping.toFixed(0)}</strong> more for <strong>FREE Express Shipping</strong>
               </>
             ) : (
               <span style={{ color: "#10b981", fontWeight: 700 }}>
@@ -332,7 +332,7 @@ export default function CartDrawer() {
                     </div>
 
                     <span style={{ fontSize: "1rem", fontWeight: 800, color: "var(--accent-cyan)" }}>
-                      ${((item.price || 0) * (item.quantity || 1)).toFixed(2)}
+                      ₹{((item.price || 0) * (item.quantity || 1)).toFixed(0)}
                     </span>
                   </div>
                 </div>
@@ -381,19 +381,19 @@ export default function CartDrawer() {
             <div style={{ display: "flex", flexDirection: "column", gap: "6px", fontSize: "0.85rem", marginBottom: "16px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", color: "var(--text-secondary)" }}>
                 <span>Subtotal</span>
-                <span>${subtotal.toFixed(2)}</span>
+                <span>₹{subtotal.toFixed(0)}</span>
               </div>
 
               {discountPercent > 0 && (
                 <div style={{ display: "flex", justifyContent: "space-between", color: "#10b981" }}>
                   <span>Discount ({discountPercent}%)</span>
-                  <span>-${discountAmount.toFixed(2)}</span>
+                  <span>-₹{discountAmount.toFixed(0)}</span>
                 </div>
               )}
 
               <div style={{ display: "flex", justifyContent: "space-between", color: "var(--text-secondary)" }}>
                 <span>Shipping</span>
-                <span>{shippingFee === 0 ? "FREE" : `$${shippingFee.toFixed(2)}`}</span>
+                <span>{shippingFee === 0 ? "FREE" : `₹${shippingFee}`}</span>
               </div>
 
               <div
@@ -408,7 +408,7 @@ export default function CartDrawer() {
                 }}
               >
                 <span>Total</span>
-                <span className="text-gradient">${finalTotal.toFixed(2)}</span>
+                <span className="text-gradient">₹{finalTotal.toFixed(0)}</span>
               </div>
             </div>
 
