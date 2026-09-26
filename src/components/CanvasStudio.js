@@ -975,7 +975,7 @@ export default function CanvasStudio({ initialProduct = null }) {
                 gridTemplateColumns: "repeat(5, 1fr)",
                 gap: "4px",
                 padding: "4px",
-                background: "rgba(0,0,0,0.3)",
+                background: "var(--bg-tertiary)",
                 borderRadius: "var(--radius-md)",
                 marginBottom: "20px"
               }}
@@ -1000,11 +1000,12 @@ export default function CanvasStudio({ initialProduct = null }) {
                       gap: "4px",
                       padding: "8px 2px",
                       borderRadius: "var(--radius-sm)",
-                      background: isActive ? "var(--bg-tertiary)" : "transparent",
+                      background: isActive ? "var(--bg-secondary)" : "transparent",
                       color: isActive ? "var(--accent-cyan)" : "var(--text-secondary)",
                       border: isActive
-                        ? "1px solid rgba(0, 240, 255, 0.3)"
+                        ? "1px solid var(--accent-cyan)"
                         : "1px solid transparent",
+                      boxShadow: isActive ? "var(--shadow-subtle)" : "none",
                       fontSize: "0.72rem",
                       fontWeight: isActive ? 700 : 500,
                       transition: "all 0.2s"
@@ -1035,7 +1036,7 @@ export default function CanvasStudio({ initialProduct = null }) {
                       display: "flex",
                       flexDirection: "column",
                       gap: "14px",
-                      background: "rgba(0,0,0,0.25)",
+                      background: "var(--bg-tertiary)",
                       padding: "16px",
                       borderRadius: "var(--radius-md)",
                       border: "1px solid var(--border-subtle)"
@@ -1623,10 +1624,10 @@ export default function CanvasStudio({ initialProduct = null }) {
                 width: "100%",
                 maxWidth: "580px",
                 aspectRatio: "600 / 700",
-                background: "radial-gradient(circle at 50% 50%, #1e2235 0%, #0d0e14 100%)",
+                background: "var(--shirt-stage-bg)",
                 borderRadius: "var(--radius-xl)",
                 border: "1px solid var(--border-subtle)",
-                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.7)",
+                boxShadow: "var(--shadow-elevated)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",

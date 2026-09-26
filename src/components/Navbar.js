@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { useCart } from "@/context/CartContext";
+import { useTheme } from "@/context/ThemeContext";
 import {
   ShoppingBag,
   User,
@@ -12,15 +13,18 @@ import {
   LogOut,
   Menu,
   X,
-  Compass,
   Layers,
-  Shirt
+  Shirt,
+  Sun,
+  Moon
 } from "lucide-react";
 
 export default function Navbar({ onOpenAuthModal }) {
   const pathname = usePathname();
-  const { user, userProfile, logout } = useAuth();
+  const { user, logout } = useAuth();
   const { totalItemsCount, setIsCartOpen } = useCart();
+  const { theme, toggleTheme, mounted } = useTheme();
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
 
@@ -36,10 +40,11 @@ export default function Navbar({ onOpenAuthModal }) {
         position: "sticky",
         top: 0,
         zIndex: 50,
-        background: "rgba(10, 11, 16, 0.8)",
+        background: "var(--bg-glass)",
         backdropFilter: "blur(20px)",
         WebkitBackdropFilter: "blur(20px)",
-        borderBottom: "1px solid var(--border-subtle)"
+        borderBottom: "1px solid var(--border-subtle)",
+        transition: "background 0.25s ease, border-color 0.25s ease"
       }}
     >
       <div
@@ -70,7 +75,7 @@ export default function Navbar({ onOpenAuthModal }) {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              boxShadow: "0 0 20px rgba(0, 240, 255, 0.35)"
+              boxShadow: "0 0 20px rgba(99, 102, 241, 0.3)"
             }}
           >
             <Shirt size={22} color="#ffffff" />
@@ -81,7 +86,8 @@ export default function Navbar({ onOpenAuthModal }) {
                 fontSize: "1.3rem",
                 fontWeight: 900,
                 letterSpacing: "-0.5px",
-                fontFamily: "var(--font-display)"
+                fontFamily: "var(--font-display)",
+                color: "var(--text-main)"
               }}
             >
               T-FLEX
@@ -139,8 +145,33 @@ export default function Navbar({ onOpenAuthModal }) {
           })}
         </nav>
 
-        {/* Right Section: Auth & Cart */}
-        <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+        {/* Right Section: Theme Toggle, Auth & Cart */}
+        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+          {/* Theme Toggle (Light / Dark) */}
+          <button
+            onClick={toggleTheme}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "40px",
+              height: "40px",
+              borderRadius: "var(--radius-full)",
+              background: "var(--bg-tertiary)",
+              border: "1px solid var(--border-subtle)",
+              color: "var(--text-main)",
+              transition: "all 0.2s ease"
+            }}
+            title={theme === "light" ? "Switch to Dark Mode" : "Switch to Light Mode"}
+            aria-label="Toggle theme"
+          >
+            {mounted && theme === "dark" ? (
+              <Sun size={18} color="#f59e0b" />
+            ) : (
+              <Moon size={18} color="var(--text-main)" />
+            )}
+          </button>
+
           {/* Studio Quick CTA */}
           <Link
             href="/customize"
@@ -167,7 +198,7 @@ export default function Navbar({ onOpenAuthModal }) {
                   gap: "8px",
                   padding: "6px 12px",
                   borderRadius: "var(--radius-full)",
-                  background: "rgba(255, 255, 255, 0.06)",
+                  background: "var(--bg-tertiary)",
                   border: "1px solid var(--border-subtle)",
                   color: "var(--text-main)",
                   fontSize: "0.85rem",
@@ -225,7 +256,7 @@ export default function Navbar({ onOpenAuthModal }) {
                       marginBottom: "6px"
                     }}
                   >
-                    <div style={{ fontSize: "0.85rem", fontWeight: 700 }}>
+                    <div style={{ fontSize: "0.85rem", fontWeight: 700, color: "var(--text-main)" }}>
                       {user.displayName || "Customer"}
                     </div>
                     <div style={{ fontSize: "0.75rem", color: "var(--text-muted)", overflow: "hidden", textOverflow: "ellipsis" }}>
@@ -310,17 +341,17 @@ export default function Navbar({ onOpenAuthModal }) {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              width: "44px",
-              height: "44px",
+              width: "42px",
+              height: "42px",
               borderRadius: "var(--radius-full)",
-              background: "rgba(255, 255, 255, 0.06)",
+              background: "var(--bg-tertiary)",
               border: "1px solid var(--border-subtle)",
               color: "var(--text-main)",
               transition: "all 0.2s"
             }}
             title="Open Cart"
           >
-            <ShoppingBag size={20} />
+            <ShoppingBag size={19} />
             {totalItemsCount > 0 && (
               <span
                 style={{
@@ -337,7 +368,7 @@ export default function Navbar({ onOpenAuthModal }) {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  boxShadow: "0 0 10px rgba(255, 0, 122, 0.6)"
+                  boxShadow: "0 0 10px rgba(225, 29, 72, 0.5)"
                 }}
               >
                 {totalItemsCount}

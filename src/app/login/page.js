@@ -137,9 +137,9 @@ export default function LoginPage() {
                 gap: "10px",
                 padding: "12px",
                 borderRadius: "var(--radius-md)",
-                background: "rgba(255, 255, 255, 0.08)",
+                background: "var(--bg-tertiary)",
                 border: "1px solid var(--border-subtle)",
-                color: "#ffffff",
+                color: "var(--text-main)",
                 fontWeight: 600,
                 fontSize: "0.9rem"
               }}

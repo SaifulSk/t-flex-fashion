@@ -214,7 +214,7 @@ export default function CartDrawer() {
                   gap: "16px",
                   padding: "14px",
                   borderRadius: "var(--radius-lg)",
-                  background: "rgba(255, 255, 255, 0.03)",
+                  background: "var(--bg-tertiary)",
                   border: "1px solid var(--border-subtle)",
                   position: "relative"
                 }}
@@ -225,13 +225,13 @@ export default function CartDrawer() {
                     width: "80px",
                     height: "90px",
                     borderRadius: "var(--radius-md)",
-                    background: "#0d0e14",
+                    background: "var(--bg-secondary)",
                     overflow: "hidden",
                     flexShrink: 0,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    border: "1px solid rgba(255,255,255,0.08)"
+                    border: "1px solid var(--border-subtle)"
                   }}
                 >
                   <img
@@ -347,7 +347,7 @@ export default function CartDrawer() {
             style={{
               padding: "20px 24px",
               borderTop: "1px solid var(--border-subtle)",
-              background: "rgba(10, 11, 16, 0.6)"
+              background: "var(--bg-secondary)"
             }}
           >
             {/* Promo Code Form */}

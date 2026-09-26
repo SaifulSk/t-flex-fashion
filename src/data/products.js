@@ -15,8 +15,7 @@ export const PRODUCTS = [
     image: "/images/mockup_black_tee.jpg",
     gallery: [
       "/images/mockup_black_tee.jpg",
-      "/images/mockup_white_tee.jpg",
-      "/images/hero.jpg"
+      "/images/mockup_white_tee.jpg"
     ],
     description:
       "Crafted from 100% premium combed ring-spun cotton at a substantial 240 GSM. Features dropped shoulders, a reinforced 1.25-inch thick ribbed crew collar, and a relaxed boxy silhouette that drapes effortlessly. Engineered for vibrant DTG (Direct-to-Garment) print longevity.",
@@ -120,7 +119,7 @@ export const PRODUCTS = [
     image: "/images/mockup_hoodie.jpg",
     gallery: [
       "/images/mockup_hoodie.jpg",
-      "/images/hero.jpg"
+      "/images/mockup_black_tee.jpg"
     ],
     description:
       "A heavyweight masterpiece. 380 GSM custom loopback French Terry fleece that maintains structural drape without sagging. Features a double-layered hood without tacky eyelets, hidden kangaroo pocket reinforcement, and ultra-snug ribbed cuffs.",
