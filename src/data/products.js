@@ -1,5 +1,9 @@
 // Product Catalog Data for T-Flex Fashion
 
+const BASE =
+  process.env.NEXT_PUBLIC_BASE_PATH ||
+  (process.env.NODE_ENV === "production" ? "/t-flex-fashion" : "");
+
 export const PRODUCTS = [
   {
     id: "heavyweight-oversized-tee",
@@ -12,10 +16,10 @@ export const PRODUCTS = [
     reviewCount: 142,
     badge: "Bestseller",
     category: "oversized",
-    image: "/images/mockup_black_tee.jpg",
+    image: `${BASE}/images/mockup_black_tee.jpg`,
     gallery: [
-      "/images/mockup_black_tee.jpg",
-      "/images/mockup_white_tee.jpg"
+      `${BASE}/images/mockup_black_tee.jpg`,
+      `${BASE}/images/mockup_white_tee.jpg`
     ],
     description:
       "Crafted from 100% premium combed ring-spun cotton at a substantial 240 GSM. Features dropped shoulders, a reinforced 1.25-inch thick ribbed crew collar, and a relaxed boxy silhouette that drapes effortlessly. Engineered for vibrant DTG (Direct-to-Garment) print longevity.",
@@ -48,10 +52,10 @@ export const PRODUCTS = [
     reviewCount: 98,
     badge: "Essential",
     category: "classic",
-    image: "/images/mockup_white_tee.jpg",
+    image: `${BASE}/images/mockup_white_tee.jpg`,
     gallery: [
-      "/images/mockup_white_tee.jpg",
-      "/images/mockup_black_tee.jpg"
+      `${BASE}/images/mockup_white_tee.jpg`,
+      `${BASE}/images/mockup_black_tee.jpg`
     ],
     description:
       "The undisputed foundation of any casual wardrobe. Lightweight yet durable 180 GSM single jersey cotton with double-needle hems and neck tape for supreme comfort. The smooth high-density weave ensures razor-sharp print details.",
@@ -83,10 +87,10 @@ export const PRODUCTS = [
     reviewCount: 215,
     badge: "Trending",
     category: "vintage",
-    image: "/images/mockup_graphic_tee.jpg",
+    image: `${BASE}/images/mockup_graphic_tee.jpg`,
     gallery: [
-      "/images/mockup_graphic_tee.jpg",
-      "/images/mockup_black_tee.jpg"
+      `${BASE}/images/mockup_graphic_tee.jpg`,
+      `${BASE}/images/mockup_black_tee.jpg`
     ],
     description:
       "Individually mineral stone-washed for a one-of-a-kind grunge aesthetic. Each tee features subtle distressed ribbing and a worn-in, ultra-plush hand feel. Perfect backdrop for retro, gothic, or high-contrast color graphics.",
@@ -116,10 +120,10 @@ export const PRODUCTS = [
     reviewCount: 88,
     badge: "Premium Heavy",
     category: "hoodies",
-    image: "/images/mockup_hoodie.jpg",
+    image: `${BASE}/images/mockup_hoodie.jpg`,
     gallery: [
-      "/images/mockup_hoodie.jpg",
-      "/images/mockup_black_tee.jpg"
+      `${BASE}/images/mockup_hoodie.jpg`,
+      `${BASE}/images/mockup_black_tee.jpg`
     ],
     description:
       "A heavyweight masterpiece. 380 GSM custom loopback French Terry fleece that maintains structural drape without sagging. Features a double-layered hood without tacky eyelets, hidden kangaroo pocket reinforcement, and ultra-snug ribbed cuffs.",

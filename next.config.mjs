@@ -1,12 +1,13 @@
 /** @type {import('next').NextConfig} */
-const isGithubActions = process.env.GITHUB_ACTIONS || false;
-let repo = "";
-if (isGithubActions && process.env.GITHUB_REPOSITORY) {
-  const repoName = process.env.GITHUB_REPOSITORY.replace(/.*?\//, "");
-  repo = `/${repoName}`;
-}
+const isProd = process.env.NODE_ENV === "production";
+const repoName = "t-flex-fashion";
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || repo || "";
+const basePath =
+  process.env.NEXT_PUBLIC_BASE_PATH !== undefined
+    ? process.env.NEXT_PUBLIC_BASE_PATH
+    : isProd
+    ? `/${repoName}`
+    : "";
 
 const nextConfig = {
   output: "export",
@@ -14,7 +15,7 @@ const nextConfig = {
     unoptimized: true
   },
   basePath: basePath,
-  assetPrefix: basePath,
+  assetPrefix: basePath || undefined,
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath
   }
